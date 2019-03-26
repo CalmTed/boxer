@@ -1,0 +1,77 @@
+/*                                                        */
+/*--------------------------------------------------SITE--*/
+/*                                                        */
+html,body{
+  margin: 0;
+  font-family: Roboto;
+}
+.container{
+
+}
+
+
+h2{
+  text-align: left;
+  font-size: 30px;
+}
+a{
+  color: #333;
+  transition: all .1s;
+}
+a:hover{
+  color: #ffc108;
+}
+input{
+
+}
+input[type='text'],input[type='email'],input[type='password']{
+  margin-left: 5px;
+  padding: 5px 10px;
+  border: 1px solid #aaa;
+}
+input[type='password']{
+}
+input[type='button']{
+  background: #ffc108;
+  border: 0;
+  padding: 10px 20px;
+  transition: all .1s;
+}
+input[type='button']:hover{
+  cursor: pointer;
+  background: #333;
+  color: #ffc108;
+}
+input[type='button']:active{
+  transform: scale(0.98);
+}
+label{
+  display: flex;
+  margin: 13px 0;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/*                                                        */
+/*-------------------------------------------------LOGIN--*/
+/*                                                        */
+.top-left-absolute-link{
+  position: absolute;
+  top: 30px;
+  left: 16%;
+  z-index: 2000;
+}
+.full-center-block{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login-form{
+text-align: center;
+}
+.login-form input[type='text'],.login-form input[type='email'],.login-form input[type='password']{
+  width: 169px;
+}
