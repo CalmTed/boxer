@@ -1,0 +1,20 @@
+{
+  "name": "nodeboxer",
+  "version": "0.0.0",
+  "description": "landing page",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.2",
+    "multer": "^1.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "author": "TF",
+  "license": "ISC"
+}

@@ -31,18 +31,18 @@ input[type='text'],input[type='email'],input[type='password']{
 }
 input[type='password']{
 }
-input[type='button']{
+input[type='submit']{
   background: #ffc108;
   border: 0;
   padding: 10px 20px;
   transition: all .1s;
 }
-input[type='button']:hover{
+input[type='submit']:hover{
   cursor: pointer;
   background: #333;
   color: #ffc108;
 }
-input[type='button']:active{
+input[type='submit']:active{
   transform: scale(0.98);
 }
 label{
