@@ -3,6 +3,8 @@ var cookieParser = require('cookie-parser');
 var fs = require('fs');
 var app = express();
 var bcrypt = require('bcrypt');
+var NodeSession = require('node-session');
+session = new NodeSession({secret: 'Q3UBzdH9GEfiRCTKbi5MTPyChpzXLsTD'});
 //cookies
 app.use(cookieParser())
 //static files
@@ -20,36 +22,31 @@ var server = app.listen(2441, function () {
   var port = server.address().port;
   console.log("%s:%s", host, port);
 });
-// ----------- ERRORS AND SYSTEM LINKS
-app.get('/', function (req, res) {
-   res.render('home',{title:'hello there'});
-   //res.sendFile( __dirname + "/" + "index.html" );
-});
 // ----------- ADMIN STAFF
 app.get('/admin',function (req,res) {
   if(req.cookies.login === 'false'){
     res.redirect('login');
   }else{
-    res.render('home');
+    res.render('admin');
   }
 });
 app.get('/admin/login',function (req,res) {
-  //console.log(req.cookies.login);
-  if(typeof req.cookies.login === 'undefined'){
+  session.startSession(req, res, callback);
+
+  if(req.session.get('key') === 'true'){
     res.render('login',{title:'Войти'});
   }else{
     res.redirect('./');
   }
 });
 app.post('/admin/login', urlencodedParser, function (req, res) {
+    session.startSession(req, res, callback);
     var auth_data = JSON.parse(fs.readFileSync(__dirname + '/data/auth.json'));
-    console.log(req.body.email,req.body.password,auth_data.email,auth_data.password);
-
     if (bcrypt.compareSync(req.body.password, auth_data.password)) {
-      console.log('valid');
-
+      req.session.put('login', 'true');
+      console.log('password is right, cookie is: '+res.cookies.login);
     }else{
-      console.log('wrong');
+      console.log('password is wrong');
     }
 
     // var hash = bcrypt.hashSync('321', 10);
@@ -60,8 +57,37 @@ app.post('/admin/login', urlencodedParser, function (req, res) {
    // };
    //console.log(req.query.fname);
    //res.end(JSON.stringify(response));
-})
-
+});
+app.get('/admin/logout',function (req, res) {
+  req.session.forget('key');
+});
+app.get('/admin/change_password',function (req, res) {
+  if(req.session.get('key') === 'true'){
+    res.render('change_password');
+  }else{
+    res.redirect('login');
+  }
+});
+app.post('/admin/change_password',urlencodedParser,function (req, res) {
+  if(req.session.get('key') === 'true'){
+    session.startSession(req, res, callback);
+    var auth_data = JSON.parse(fs.readFileSync(__dirname + '/data/auth.json'));
+    if (bcrypt.compareSync(req.body.password, auth_data.password)) {
+      req.session.put('login', 'true');
+      console.log('password is right, cookie is: '+res.cookies.login);
+      //changing password
+    }else{
+      console.log('password is wrong');
+    }
+  }else{
+    res.redirect('login');
+  }
+});
+// ----------- ERRORS AND SYSTEM LINKS
+app.get('/', function (req, res) {
+   res.render('home',{title:'База боксер'});
+   //res.sendFile( __dirname + "/" + "index.html" );
+});
 app.use(function(req, res, next){
   res.status(404);
   res.render('404');
