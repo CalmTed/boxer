@@ -12,6 +12,31 @@
 <script type="text/javascript" src="js/jq.js"></script>
 <script type="text/javascript">
   $('.login-form').submit(function(e){
-    e.preventDefault();
+    //e.preventDefault();
+    // $.getJSON("data/files.php?enc="+enc,function(data){//geting data
+    //   console.log(data);
+    //   localStorage.setItem('flist',JSON.stringify(data));
+    //   folders = $('<div class="temp-folders-holder"></dv>');
+    //   for(el in data){
+    //     if(data[el].type !== undefined){
+    //       if(data[el].type == 'dir'){
+    //         //getting 4 img from this folder
+    //         imgs  = 'пусто';
+    //         i = 0;
+    //         for(el2 in data[el]){
+    //           if(i<4){
+    //             if(data[el][el2].type !== undefined){
+    //               if(data[el][el2].type == 'jpg'||data[el][el2].type == 'png'||data[el][el2].type == 'gif'){
+    //                 if(imgs == 'пусто')imgs = '';
+    //                 imgs+='<span class="fhi-i-image" style="background-image:url(data/'+el2+'.cmssmall)"></span>';
+    //                 i++;
+    //               }
+    //             }
+    //           }
+    //         }
+    //         }
+    //
+    //     }
+    //   }
   });
 </script>
