@@ -110,12 +110,14 @@ app.post('/admin/change_password', urlencodedParser, function(req, res) {
     res.redirect('login');
   }
 });
-// ----------- ERRORS AND SYSTEM LINKS
+// ---------- MAIN PAGE
 app.get('/', function(req, res) {
   res.render('home', {
-    title: 'База боксер'
+    title: 'База боксер',
+    head:'<link rel="stylesheet" href="css/home.css">'
   });
 });
+// ----------- ERRORS AND SYSTEM LINKS
 app.use(function(req, res, next) {
   res.status(404);
   res.render('404');
