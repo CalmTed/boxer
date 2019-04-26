@@ -13,7 +13,7 @@
 //change_password get
 //change_password post
 //---ERRORS
-
+var path = require('path');
 var express = require('express');
 var fs = require('fs');
 var app = express();
@@ -22,6 +22,7 @@ var cookieParser = require('cookie-parser');
 app.use(cookieParser());
 //static files
 app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'bower_components')));
 //for page layout
 var handlebars = require('express-handlebars').create({
   defaultLayout: 'main'

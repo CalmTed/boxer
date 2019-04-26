@@ -5,6 +5,7 @@ html {
   --main-color: #fd6a1c;
   --font-1: 'AlegreyaSansSC', sans-serif;
   --font-2: 'OpenSans', sans-serif;
+  --font-3: 'HelveticaNeue', sans-serif;
   background-color: var(--dark);
   color: rgb(211, 211, 211);
   --sm: 8%;
@@ -32,13 +33,66 @@ a:hover, a:focus {
 }
 
 h1 {
-  font-family: var(--font-1);
+  font-family: var(--font-3);
   font-weight: 800;
   font-size: 72px;
   background: -webkit-linear-gradient(#fd6a1c, #f94040);
   transition: background-image 2s;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+  .BodyContainer {
+  --dark: rgb(43, 43, 43);
+  --light: rgb(100, 100, 100);
+  --filler-color: #f94040;
+  --main-color: #fd6a1c;
+  --font-1: 'AlegreyaSansSC', sans-serif;
+  --font-2: 'OpenSans', sans-serif;
+  background-color: var(--dark);
+  color: rgb(211, 211, 211);
+  --sm: 8%;
+  font-family: var(--font-3);
+  font-weight: bold;
+  --transition: all .5s;
+}
+.contacts {
+  --dark: rgb(43, 43, 43);
+  --light: rgb(100, 100, 100);
+  --filler-color: #f94040;
+  --main-color: #fd6a1c;
+  --font-1: 'AlegreyaSansSC', sans-serif;
+  --font-2: 'OpenSans', sans-serif;
+  background-color: var(--dark);
+  color: rgb(211, 211, 211);
+  --sm: 8%;
+  font-family: var(--font-3);
+  font-weight: bold;
+  --transition: all .5s;
+}
+
+.footer{
+  --dark: rgb(43, 43, 43);
+  --light: rgb(100, 100, 100);
+  --filler-color: #f94040;
+  --main-color: #fd6a1c;
+  --font-1: 'AlegreyaSansSC', sans-serif;
+  --font-2: 'OpenSans', sans-serif;
+  background-color: var(--dark);
+  color: rgb(211, 211, 211);
+  --sm: 8%;
+  font-family: var(--font-2);
+  font-weight: bold;
+  --transition: all .5s;
+}
+
+.instaimage{
+  margin-bottom: 30px;
+}
+.instaimage:hover {
+  opacity:0.8;
+  -moz-opacity:0.8;
+  -webkit-opacity:0.8;
 }
 
 .noa {
@@ -122,8 +176,8 @@ h1 {
 }
 
 @font-face {
-  font-family: 'OpenSans';
-  src: url("fonts/OpenSans-Bold.ttf");
+  font-family: 'HelveticaNeue';
+  src: url("fonts/helveticaneue/HelveticaNeue.ttf");
   font-weight: bold;
   font-style: normal;
   font-stretch: normal
